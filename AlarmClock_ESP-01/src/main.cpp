@@ -1,9 +1,14 @@
 #include <Arduino.h>
 
-void setup() {
+#include "ESP8266WiFi.h"
+#include "FirebaseArduino.h"
+
+void setup()
+{
   // put your setup code here, to run once:
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
 }
