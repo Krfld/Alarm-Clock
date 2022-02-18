@@ -1,14 +1,26 @@
-#include <Arduino.h>
-
-#include "ESP8266WiFi.h"
-#include "FirebaseArduino.h"
+#include "main.h"
 
 void setup()
 {
-  // put your setup code here, to run once:
+  Serial.begin(BAUDRATE);
+
+  Serial.print("Connecting...");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.print(".");
+    delay(500);
+  }
+  Serial.println();
+
+  Serial.print("WiFi connected to ");
+  Serial.println(WiFi.localIP());
+
+  // Firebase.begin(DATABASE_URL, DATABASE_SECRET);
 }
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
+  Serial.println("Running...");
+  delay(1000);
 }
