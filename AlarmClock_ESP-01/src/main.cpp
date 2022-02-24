@@ -18,7 +18,7 @@ void connectWiFi()
 {
 	// Serial.print("Connecting...");
 
-	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+	// WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 	// while (WiFi.status() != WL_CONNECTED)
 	// {
 	// 	Serial.print(".");
@@ -32,7 +32,7 @@ void connectWiFi()
 
 void connectFirebase()
 {
-	Firebase.begin(DATABASE_URL, DATABASE_SECRET);
+	// Firebase.begin(DATABASE_URL, DATABASE_SECRET);
 }
 
 void loop()
