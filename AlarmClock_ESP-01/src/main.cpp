@@ -2,33 +2,45 @@
 
 // TODO search sleep mode
 
+Alarm alarm;
+
 void setup()
 {
+	Serial.begin(BAUDRATE);
 	pinMode(VIBRATOR_PIN, OUTPUT);
 
-	Serial.begin(BAUDRATE);
+	connectWiFi();
 
-	Serial.print("Connecting...");
-	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-	while (WiFi.status() != WL_CONNECTED)
-	{
-		Serial.print(".");
-		delay(500);
-	}
-	Serial.println();
-
-	Serial.print("WiFi connected to ");
-	Serial.println(WiFi.localIP());
-
-	// Firebase.begin(DATABASE_URL, DATABASE_SECRET);
+	connectFirebase();
 }
 
-Alarm alarm;
+void connectWiFi()
+{
+	// Serial.print("Connecting...");
+
+	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+	// while (WiFi.status() != WL_CONNECTED)
+	// {
+	// 	Serial.print(".");
+	// 	delay(500);
+	// }
+	// Serial.println();
+
+	// Serial.print("WiFi connected to ");
+	// Serial.println(WiFi.localIP());
+}
+
+void connectFirebase()
+{
+	Firebase.begin(DATABASE_URL, DATABASE_SECRET);
+}
 
 void loop()
 {
-	// Serial.println("Running...");
-	// delay(1000);
+	Serial.println("Running...");
+	delay(1000);
+
+	return;
 
 	if (alarm.state)
 		play();
